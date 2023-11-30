@@ -21,6 +21,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stm32l475e_iot01.h"
+#include "stm32l475e_iot01_tsensor.h"
+#include "stm32l475e_iot01_accelero.h"
+#include <math.h>
+#include <stdio.h>
 
 /* USER CODE END Includes */
 
@@ -50,6 +55,17 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
+float temp_value = 0;  // Measured temperature value
+int16_t accel_value;  // Measured accelerometer value
+char str_tmp[100] = ""; // Formatted message to display the temperature value
+char str_accel[100] = ""; // Formatted message to display the accelerometer value
+uint8_t tmp_msg1[] = "****** Temperature values measurement ******\n\n\r";
+uint8_t tmp_msg2[] = "=====> Initialize Temperature sensor HTS221 \r\n";
+uint8_t tmp_msg3[] = "=====> Temperature sensor HTS221 initialized \r\n ";
+
+uint8_t accel_msg1[] = "****** Accelerometer values measurement ******\n\n\r";
+uint8_t accel_msg2[] = "=====> Initialize Accelerometer sensor LSM6DSL \r\n";
+uint8_t accel_msg3[] = "=====> Accelerometer sensor LSM6DSL initialized \r\n ";
 
 /* USER CODE END PV */
 
@@ -104,6 +120,15 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  HAL_UART_Transmit(&huart1,tmp_msg1,sizeof(tmp_msg1),1000);
+  HAL_UART_Transmit(&huart1,tmp_msg2,sizeof(tmp_msg2),1000);
+  BSP_TSENSOR_Init();
+  HAL_UART_Transmit(&huart1,tmp_msg3,sizeof(tmp_msg3),1000);
+
+  HAL_UART_Transmit(&huart1,accel_msg1,sizeof(accel_msg1),1000);
+  HAL_UART_Transmit(&huart1,accel_msg2,sizeof(accel_msg2),1000);
+  BSP_ACCELERO_Init();
+  HAL_UART_Transmit(&huart1,accel_msg3,sizeof(accel_msg3),1000);
 
   /* USER CODE END 2 */
 
@@ -111,10 +136,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
-	  uint8_t Test[] = "Hello World !!!\r\n"; //Data to send
-	  HAL_UART_Transmit(&huart1,Test,sizeof(Test),10);// Sending in normal mode
-	  HAL_Delay(1000);
+	  temp_value = BSP_TSENSOR_ReadTemp();
+	  BSP_ACCELERO_AccGetXYZ(&accel_value);
+	  int tmpInt1 = temp_value;
+	  float tmpFrac = temp_value - tmpInt1;
+	  int tmpInt2 = trunc(tmpFrac * 100);
+	  snprintf(str_tmp,100," TEMPERATURE = %d.%02d\n\r", tmpInt1, tmpInt2);
+	  HAL_UART_Transmit(&huart1,( uint8_t *)str_tmp,sizeof(str_tmp),1000);
+
+	  snprintf(str_accel,100," ACCELERATION = %i\n\r", accel_value);
+	  HAL_UART_Transmit(&huart1,( uint8_t *)str_accel,sizeof(str_accel),1000);
+	  HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

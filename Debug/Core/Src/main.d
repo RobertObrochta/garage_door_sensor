@@ -22,6 +22,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ramfunc.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pcd.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_usb.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pcd_ex.h \
@@ -29,7 +31,17 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_qspi.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
- ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
+ C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01.h \
+ C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_tsensor.h \
+ C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01.h \
+ C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/hts221/hts221.h \
+ C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/hts221/../Common/hsensor.h \
+ C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/hts221/../Common/tsensor.h \
+ C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_accelero.h \
+ C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/lsm6dsl/lsm6dsl.h \
+ C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/lsm6dsl/../Common/accelero.h \
+ C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/lsm6dsl/../Common/gyro.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -54,6 +66,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ramfunc.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pcd.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_usb.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pcd_ex.h:
@@ -62,3 +76,13 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_qspi.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
+C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01.h:
+C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_tsensor.h:
+C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01.h:
+C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/hts221/hts221.h:
+C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/hts221/../Common/hsensor.h:
+C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/hts221/../Common/tsensor.h:
+C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_accelero.h:
+C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/lsm6dsl/lsm6dsl.h:
+C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/lsm6dsl/../Common/accelero.h:
+C:/Users/obroc/STM32CubeIDE/workspace_1.11.0/garage_door_sensor/Drivers/BSP/B-L475E-IOT01/../Components/lsm6dsl/../Common/gyro.h:
