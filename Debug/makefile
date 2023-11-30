@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := garage_door_project
+BUILD_ARTIFACT_NAME := garage_door_sensor
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-garage_door_project.elf \
+garage_door_sensor.elf \
 
 MAP_FILES += \
-garage_door_project.map \
+garage_door_sensor.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-garage_door_project.list \
+garage_door_sensor.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: garage_door_project.elf secondary-outputs
+main-build: garage_door_sensor.elf secondary-outputs
 
 # Tool invocations
-garage_door_project.elf garage_door_project.map: $(OBJS) $(USER_OBJS) /home/robert/STM32CubeIDE/workspace_1.13.2/garage_door_project/STM32L475VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "garage_door_project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/robert/STM32CubeIDE/workspace_1.13.2/garage_door_project/STM32L475VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="garage_door_project.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+garage_door_sensor.elf garage_door_sensor.map: $(OBJS) $(USER_OBJS) C:\Users\obroc\STM32CubeIDE\workspace_1.11.0\garage_door_sensor\STM32L475VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "garage_door_sensor.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\obroc\STM32CubeIDE\workspace_1.11.0\garage_door_sensor\STM32L475VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="garage_door_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-garage_door_project.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "garage_door_project.list"
+garage_door_sensor.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "garage_door_sensor.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout garage_door_project.elf garage_door_project.list garage_door_project.map
+	-$(RM) default.size.stdout garage_door_sensor.elf garage_door_sensor.list garage_door_sensor.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
