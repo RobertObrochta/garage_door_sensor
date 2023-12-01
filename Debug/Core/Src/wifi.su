@@ -1,0 +1,2 @@
+../Core/Src/wifi.c:10:6:setSensor	80	static
+../Core/Src/wifi.c:30:6:setDataInt	32	static

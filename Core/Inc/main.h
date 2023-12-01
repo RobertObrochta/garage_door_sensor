@@ -209,6 +209,8 @@ void Error_Handler(void);
 #define LPn_C_GPIO_Port GPIOB
 #define ST_LINK_UART1_TX_Pin GPIO_PIN_6
 #define ST_LINK_UART1_TX_GPIO_Port GPIOB
+#define TOF_RESET_Pin GPIO_PIN_6
+#define TOF_RESET_GPIO_Port GPIOC
 #define ISM43362_SPI3_CSN_Pin GPIO_PIN_0
 #define ISM43362_SPI3_CSN_GPIO_Port GPIOE
 #define ISM43362_DRDY_EXTI1_Pin GPIO_PIN_1
